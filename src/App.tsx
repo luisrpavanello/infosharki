@@ -33,7 +33,7 @@ function App() {
                 Info Sharki
                 <SharkIcon className="w-5 h-5 text-blue-600" />
               </h1>
-              <p className="text-sm text-gray-600">Bot de Búsqueda - Universidad del Pacífico</p>
+              <p className="text-sm text-gray-600">InfoSharki el Búscador Inteligente de la Universidad del Pacífico</p>
             </div>
             <div className="ml-auto flex items-center gap-4">
               {messages.length > 1 && (
