@@ -31,7 +31,6 @@ function App() {
             <div>
               <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
                 Info Sharki
-                <SharkIcon className="w-5 h-5 text-blue-600" />
               </h1>
               <p className="text-sm text-gray-600">InfoSharki el Búscador Inteligente de la Universidad del Pacífico</p>
             </div>
@@ -60,7 +59,6 @@ function App() {
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
               ¡Bienvenido a Info Sharki!
-              <SharkIcon className="w-8 h-8 text-blue-600" />
             </h2>
             <p className="text-gray-600 max-w-md mx-auto">
               Tu asistente inteligente para encontrar información de la Universidad del Pacífico

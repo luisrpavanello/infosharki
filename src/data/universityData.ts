@@ -63,7 +63,7 @@ export const professors: ProfessorInfo[] = [
     name: 'Dra. María González',
     email: 'mgonzalez@upacifico.edu.py',
     department: 'Administración',
-    position: 'Decana',
+    position: 'Doctora',
     phone: '021-123-457',
     office: 'Torre 2 - Oficina 301'
   },
