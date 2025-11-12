@@ -7,7 +7,7 @@ export const useChat = () => {
     {
       id: '1',
       type: 'bot',
-      content: '¡Hola! Soy el bot de búsqueda de la Universidad del Pacífico 🎓\n\n¿En qué puedo ayudarte hoy? Puedo encontrar información sobre:\n• Ubicación de aulas\n• Correos de profesores\n• Horarios de clases\n• Contactos de diferentes áreas',
+      content: '¡Hola! Soy el InfoSharki el buscador inteligente de la Universidad del Pacífico 🎓\n\n¿En qué puedo ayudarte hoy? Puedo encontrar información sobre:\n• Ubicación de aulas\n• Correos de profesores\n• Horarios de clases\n• Contactos de diferentes áreas',
       timestamp: new Date()
     }
   ]);
@@ -17,7 +17,7 @@ export const useChat = () => {
       {
         id: '1',
         type: 'bot',
-        content: '¡Hola! Soy el bot de búsqueda de la Universidad del Pacífico 🎓\n\n¿En qué puedo ayudarte hoy? Puedo encontrar información sobre:\n• Ubicación de aulas\n• Correos de profesores\n• Horarios de clases\n• Contactos de diferentes áreas',
+        content: '¡Hola! Soy el InfoSharki el buscador inteligente de la Universidad del Pacífico 🎓\n\n¿En qué puedo ayudarte hoy? Puedo encontrar información sobre:\n• Ubicación de aulas\n• Correos de profesores\n• Horarios de clases\n• Contactos de diferentes áreas',
         timestamp: new Date()
       }
     ]);
