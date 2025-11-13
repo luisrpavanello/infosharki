@@ -8,7 +8,7 @@ Este prototipo MVP fue desarrollado específicamente para el **Concurso Universi
 
 ![Interface do Info Sharki](./public/infosharkipage.png)
 
-![Interface do Info Sharki](./public/infosharki.mp4)
+![Interface do Info Sharki](./public/infosharki.gif)
 
 *Captura de tela y Video do protótipo do Info Sharki*
 
