@@ -159,13 +159,4 @@ Universidad del Pacífico
 
 ---
 
-## 🌐 Información de Contacto
-
-**Universidad del Pacífico**  
-📧 [info@upacifico.edu.py](mailto:info@upacifico.edu.py)  
-🌍 [upacifico.edu.py](https://upacifico.edu.py)  
-📞 +595 21 123-456
-
----
-
 *¡Descubre la información universitaria de manera inteligente con Info Sharki! 🦈*
