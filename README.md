@@ -134,7 +134,6 @@ Los estilos utilizan Tailwind CSS. Modificar clases en los componentes o extende
 - [ ] Base de datos persistente
 - [ ] Sistema de autenticación
 - [ ] Historial de conversaciones
-- [ ] Búsqueda por voz
 - [ ] Notificaciones push
 - [ ] Panel administrativo
 
