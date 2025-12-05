@@ -7,51 +7,67 @@ export const useChat = () => {
     {
       id: '1',
       type: 'bot',
-      content: '¡Hola! Soy Info Sharki, tu asistente inteligente de la Universidad del Pacífico. ¿En qué puedo ayudarte hoy?',
+      content: '¡Hola! Soy InfoSharki, tu asistente inteligente de la Universidad del Pacífico. ¿En qué puedo ayudarte hoy?',
       timestamp: new Date(),
     },
   ]);
 
-  const sendMessage = useCallback((content: string) => {
-    // Mensaje del usuario
+  // Inicializar o serviço de busca vetorial
+  useState(() => {
+    SearchService.initialize().catch(console.error);
+  });
+
+  const sendMessage = useCallback(async (content: string) => { // ← ADICIONAR async AQUI
+    if (!content.trim()) return;
+
+    // Mensagem do usuário
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       type: 'user',
-      content,
+      content: content.trim(),
       timestamp: new Date(),
     };
 
-    // Respuesta del bot
-    const botResponse = SearchService.processQuery(content);
-    const botMessage: ChatMessage = {
-      id: (Date.now() + 1).toString(),
-      type: 'bot',
-      content: botResponse,
-      timestamp: new Date(),
-    };
+    setMessages(prev => [...prev, userMessage]);
 
-    setMessages(prev => [...prev, userMessage, botMessage]);
+    try {
+      // ADICIONAR await AQUI
+      const response = await SearchService.processQuery(content.trim());
+
+      // Mensagem do bot
+      const botMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        type: 'bot',
+        content: response,
+        timestamp: new Date(),
+      };
+
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Error processing message:', error);
+      
+      const errorMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        type: 'bot',
+        content: 'Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta de nuevo.',
+        timestamp: new Date(),
+      };
+
+      setMessages(prev => [...prev, errorMessage]);
+    }
   }, []);
 
-  const handleQuickAction = useCallback((actionId: string) => {
-    // Mensaje del usuario para la acción rápida
-    const userMessage: ChatMessage = {
-      id: Date.now().toString(),
-      type: 'user',
-      content: getActionLabel(actionId),
-      timestamp: new Date(),
-    };
-
-    // Respuesta del bot usando el nuevo método
-    const botResponse = SearchService.processQuickAction(actionId);
+  const handleQuickAction = useCallback((action: string) => {
+    const response = SearchService.processQuickAction(action);
+    
     const botMessage: ChatMessage = {
-      id: (Date.now() + 1).toString(),
+      id: Date.now().toString(),
       type: 'bot',
-      content: botResponse,
+      content: response,
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage, botMessage]);
+    setMessages(prev => [...prev, botMessage]);
   }, []);
 
   const resetChat = useCallback(() => {
@@ -59,7 +75,7 @@ export const useChat = () => {
       {
         id: '1',
         type: 'bot',
-        content: '¡Hola! Soy Info Sharki, tu asistente inteligente de la Universidad del Pacífico. ¿En qué puedo ayudarte hoy?',
+        content: '¡Hola! Soy InfoSharki, tu asistente inteligente de la Universidad del Pacífico. ¿En qué puedo ayudarte hoy?',
         timestamp: new Date(),
       },
     ]);
@@ -72,14 +88,3 @@ export const useChat = () => {
     resetChat,
   };
 };
-
-// Función auxiliar para obtener etiquetas de acciones
-function getActionLabel(actionId: string): string {
-  const actions: { [key: string]: string } = {
-    'aulas': 'Mostrar todas las aulas disponibles',
-    'correos': 'Mostrar correos de profesores',
-    'horarios': 'Mostrar horarios de clases',
-    'contactos': 'Mostrar información de contacto'
-  };
-  return actions[actionId] || actionId;
-}
